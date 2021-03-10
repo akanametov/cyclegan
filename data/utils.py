@@ -24,7 +24,7 @@ class ImageDataset(torch.utils.data.Dataset):
         if x.shape[0] != 3: 
             x = x.repeat(3, 1, 1)
         if y.shape[0] != 3: 
-            y = item_B.repeat(3, 1, 1)
+            y = y.repeat(3, 1, 1)
         if index == len(self) - 1:
             self.new_perm()
         # Old versions of PyTorch didn't support normalization for different-channeled images
