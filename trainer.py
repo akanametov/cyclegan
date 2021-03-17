@@ -70,26 +70,36 @@ class Trainer():
                 
                 # Generator AB and Generator BA
                 self.g_optimizer.zero_grad()
-                
                 fakeB = self.generatorAB(realA)
-                fakeB_pred = self.discriminatorB(fakeB)
-                idenB = self.generatorAB(realB)
-                cycleB = self.generatorAB(fakeA)
-                gAB_loss = self.g_criterion(fakeB_pred, idenB, cycleB, realB)
-                
-                
                 fakeA = self.generatorBA(realB)
+                fakeB_pred = self.discriminatorB(fakeB)
                 fakeA_pred = self.discriminatorA(fakeA)
+                idenB = self.generatorAB(realB)
                 idenA = self.generatorBA(realA)
+                cycleB = self.generatorAB(fakeA)
                 cycleA = self.generatorBA(fakeB)
+                gAB_loss = self.g_criterion(fakeB_pred, idenB, cycleB, realB)
                 gBA_loss = self.g_criterion(fakeA_pred, idenA, cycleA, realA)
+                
+#                 fakeB = self.generatorAB(realA)
+#                 fakeB_pred = self.discriminatorB(fakeB)
+#                 idenB = self.generatorAB(realB)
+#                 cycleB = self.generatorAB(fakeA)
+#                 gAB_loss = self.g_criterion(fakeB_pred, idenB, cycleB, realB)
+                
+                
+#                 fakeA = self.generatorBA(realB)
+#                 fakeA_pred = self.discriminatorA(fakeA)
+#                 idenA = self.generatorBA(realA)
+#                 cycleA = self.generatorBA(fakeB)
+#                 gBA_loss = self.g_criterion(fakeA_pred, idenA, cycleA, realA)
                 
                 g_loss = gAB_loss + gBA_loss
                 g_loss.backward()
                 self.g_optimizer.step()
                 
                 mean_gloss += g_loss.item()/display_step
-                mean_dloss += dA_loss.item()/display_step
+                mean_dloss += (dA_loss.item()+dB_loss.item())/(2*display_step)
                 
                 if t% display_step == 0:
                     losses['gloss'].append(mean_gloss)
