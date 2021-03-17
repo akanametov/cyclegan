@@ -2,10 +2,10 @@ import torch
 from torch import nn
 
 class GeneratorLoss(nn.Module):
-    def __init__(self, alpha=1, beta=0.1, gamma=10):
+    def __init__(self, alpha=1, beta=10, gamma=10):
         super().__init__()
         self.bce = nn.BCEWithLogitsLoss()
-        self.l1 = nn.L1Loss()
+        self.l1 = nn.MSELoss() #.L1Loss()
         self.alpha=alpha
         self.beta=beta
         self.gamma=gamma
