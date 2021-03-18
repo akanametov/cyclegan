@@ -19,6 +19,8 @@ As *Generators* it uses **U-Net**-like generators and **PatchGAN** discriminator
 ## Training 
 
 See [demo](https://github.com/akanametov/CycleGAN/blob/main/demo/demo.ipynb) for more details of training process.
+* The models are under `model/__init__.py`.
+* Helpfull modules are under `model/modules.py`.
 * The model trainer is under `trainer.py`.
 ### Results
 ##### `Generators` and `Discriminators` losses
