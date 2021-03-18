@@ -48,8 +48,8 @@ See [demo](https://github.com/akanametov/NeuralStyleTransfer/blob/main/demo/demo
 #### Result on both Generators: from `A2B` and `B2A`
 
 <a><div class="column">
-    <img src="images/a2o.png" align="center" height="200px" width="300px"/>
-    <img src="images/o2a.png" align="center" height="200px" width="300px"/>
+    <img src="images/apple2orange.png" align="center" height="200px" width="300px"/>
+    <img src="images/orange2apple.png" align="center" height="200px" width="300px"/>
 </div></a>
 
 ## License
