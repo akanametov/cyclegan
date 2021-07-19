@@ -176,7 +176,7 @@ class ResGenerator(nn.Module):
         
     def _make_resblock(self, planes, num_blocks):
         layers = []
-        for b in range(num_blocks-2):
+        for b in range(num_blocks):
             layers.append(ResidualBlock(planes))
         return nn.Sequential(*layers)
         
@@ -211,7 +211,7 @@ class UnetResGenerator(nn.Module):
         
     def _make_resblock(self, planes, num_blocks):
         layers = []
-        for b in range(num_blocks-2):
+        for b in range(num_blocks):
             layers.append(ResidualBlock(planes))
         return nn.Sequential(*layers)
         
