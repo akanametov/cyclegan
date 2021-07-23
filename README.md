@@ -2,7 +2,7 @@
 =========
 Pytorch implementation of CycleGAN
 
-[CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) is a generative model which allows to
+[CycleGAN](https://arxiv.org/pdf/1703.10593.pdf) is a image-to-image generative model which allows to
 transfer the style of *image A* to *image B* and vice-versa. It does it by training two generators:
 **Generator AB** and **GeneratorBA** as well as two discriminators: **Discriminator B** and **Discriminator A**.
 As *Generators* it uses **U-Net**-like generators and **PatchGAN** discriminators.
